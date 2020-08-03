@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Departamentoes", "Index", "Departamentoes")</li>
+                        <li>@Html.ActionLink("AnioElectivoes", "Index", "AnioElectivoes")</li>
+                        <li>@Html.ActionLink("Colegios", "Index", "Colegios")</li>
+                        <li>@Html.ActionLink("Gradoes", "Index", "Gradoes")</li>
+                        <li>@Html.ActionLink("Materias", "Index", "Materias")</li>
+                        <li>@Html.ActionLink("Alumnoes", "Index", "Alumnoes")</li>
+                        <li>@Html.ActionLink("EmunAsis", "Index", "EmunAsis")</li>
+                        <li>@Html.ActionLink("Asistencias", "Index", "Asistencias")</li>
+                        <li>@Html.ActionLink("Grupo", "Index", "Grupoes")</li>
+                        <li>@Html.ActionLink("Docente", "Index", "Docentes")</li>
+                        <li>@Html.ActionLink("Tutor", "Index", "Tutors")</li>
+                        <li>@Html.ActionLink("Director", "Index", "Directors")</li>
+                    </ul>
+
+                </div>             
+            </div>
+        </div>
+       
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

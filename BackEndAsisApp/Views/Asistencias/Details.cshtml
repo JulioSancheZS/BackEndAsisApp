@@ -1,0 +1,50 @@
+﻿@model BackEndAsisApp.Models.Asistencia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Asistencia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alumno.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alumno.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Docente.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Docente.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmunAsi.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmunAsi.Descripcion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdAsistencia }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

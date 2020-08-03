@@ -1,0 +1,50 @@
+﻿@model BackEndAsisApp.Models.Colegio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Colegio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomColegio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomColegio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnioElectivo.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnioElectivo.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Departamento.NomDepartamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departamento.NomDepartamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Director.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Director.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idColegio }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

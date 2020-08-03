@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BackEndAsisApp.Models.Grupo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomGrupo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Docente.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Materia.NomMateria)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomGrupo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Docente.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Materia.NomMateria)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdGrupo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdGrupo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdGrupo })
+        </td>
+    </tr>
+}
+
+</table>

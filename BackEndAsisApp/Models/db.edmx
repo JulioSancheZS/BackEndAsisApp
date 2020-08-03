@@ -1,0 +1,820 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBAsisAppModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Alumno">
+          <Key>
+            <PropertyRef Name="IdAlumno" />
+          </Key>
+          <Property Name="IdAlumno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sexo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="IdGrado" Type="int" Nullable="false" />
+          <Property Name="IdGrupo" Type="int" Nullable="false" />
+          <Property Name="IdTutor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AnioElectivo">
+          <Key>
+            <PropertyRef Name="IdAnioElectivo" />
+          </Key>
+          <Property Name="IdAnioElectivo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Semestre" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Asistencia">
+          <Key>
+            <PropertyRef Name="IdAsistencia" />
+          </Key>
+          <Property Name="IdAsistencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="IdAlumno" Type="int" Nullable="false" />
+          <Property Name="IdEnumAsis" Type="int" Nullable="false" />
+          <Property Name="IdDocente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Colegio">
+          <Key>
+            <PropertyRef Name="idColegio" />
+          </Key>
+          <Property Name="idColegio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomColegio" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdAnioElectivo" Type="int" Nullable="false" />
+          <Property Name="IdDepartamento" Type="int" Nullable="false" />
+          <Property Name="IdDirector" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomDepartamento" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Director">
+          <Key>
+            <PropertyRef Name="IdDirector" />
+          </Key>
+          <Property Name="IdDirector" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Apellido" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Docente">
+          <Key>
+            <PropertyRef Name="IdDocente" />
+          </Key>
+          <Property Name="IdDocente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Foto" Type="varbinary(max)" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmunAsis">
+          <Key>
+            <PropertyRef Name="IdEnumAsis" />
+          </Key>
+          <Property Name="IdEnumAsis" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grado">
+          <Key>
+            <PropertyRef Name="IdGrado" />
+          </Key>
+          <Property Name="IdGrado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="idColegio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="IdGrupo" />
+          </Key>
+          <Property Name="IdGrupo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomGrupo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IdMateria" Type="int" Nullable="false" />
+          <Property Name="IdDocente" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="IdMateria" />
+          </Key>
+          <Property Name="IdMateria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomMateria" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tutor">
+          <Key>
+            <PropertyRef Name="IdTutor" />
+          </Key>
+          <Property Name="IdTutor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <Association Name="RefAlumno12">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+          <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="IdAlumno" />
+            </Principal>
+            <Dependent Role="Asistencia">
+              <PropertyRef Name="IdAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefAnioElectivo7">
+          <End Role="AnioElectivo" Type="Self.AnioElectivo" Multiplicity="1" />
+          <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnioElectivo">
+              <PropertyRef Name="IdAnioElectivo" />
+            </Principal>
+            <Dependent Role="Colegio">
+              <PropertyRef Name="IdAnioElectivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefColegio26">
+          <End Role="Colegio" Type="Self.Colegio" Multiplicity="1" />
+          <End Role="Grado" Type="Self.Grado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colegio">
+              <PropertyRef Name="idColegio" />
+            </Principal>
+            <Dependent Role="Grado">
+              <PropertyRef Name="idColegio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefDepartamento32">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+          <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="IdDepartamento" />
+            </Principal>
+            <Dependent Role="Colegio">
+              <PropertyRef Name="IdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefDirector70">
+          <End Role="Director" Type="Self.Director" Multiplicity="1" />
+          <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Director">
+              <PropertyRef Name="IdDirector" />
+            </Principal>
+            <Dependent Role="Colegio">
+              <PropertyRef Name="IdDirector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefDocente62">
+          <End Role="Docente" Type="Self.Docente" Multiplicity="1" />
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docente">
+              <PropertyRef Name="IdDocente" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="IdDocente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefDocente64">
+          <End Role="Docente" Type="Self.Docente" Multiplicity="1" />
+          <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docente">
+              <PropertyRef Name="IdDocente" />
+            </Principal>
+            <Dependent Role="Asistencia">
+              <PropertyRef Name="IdDocente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefEmunAsis33">
+          <End Role="EmunAsis" Type="Self.EmunAsis" Multiplicity="1" />
+          <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmunAsis">
+              <PropertyRef Name="IdEnumAsis" />
+            </Principal>
+            <Dependent Role="Asistencia">
+              <PropertyRef Name="IdEnumAsis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefGrado27">
+          <End Role="Grado" Type="Self.Grado" Multiplicity="1" />
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grado">
+              <PropertyRef Name="IdGrado" />
+            </Principal>
+            <Dependent Role="Alumno">
+              <PropertyRef Name="IdGrado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefGrupo63">
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="1" />
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="Alumno">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefMateria61">
+          <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="IdMateria" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="IdMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTutor69">
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="1" />
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutor">
+              <PropertyRef Name="IdTutor" />
+            </Principal>
+            <Dependent Role="Alumno">
+              <PropertyRef Name="IdTutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBAsisAppModelStoreContainer">
+          <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AnioElectivo" EntityType="Self.AnioElectivo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Asistencia" EntityType="Self.Asistencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Colegio" EntityType="Self.Colegio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamento" EntityType="Self.Departamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Director" EntityType="Self.Director" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Docente" EntityType="Self.Docente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmunAsis" EntityType="Self.EmunAsis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grado" EntityType="Self.Grado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupo" EntityType="Self.Grupo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tutor" EntityType="Self.Tutor" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="RefAlumno12" Association="Self.RefAlumno12">
+            <End Role="Alumno" EntitySet="Alumno" />
+            <End Role="Asistencia" EntitySet="Asistencia" />
+          </AssociationSet>
+          <AssociationSet Name="RefAnioElectivo7" Association="Self.RefAnioElectivo7">
+            <End Role="AnioElectivo" EntitySet="AnioElectivo" />
+            <End Role="Colegio" EntitySet="Colegio" />
+          </AssociationSet>
+          <AssociationSet Name="RefColegio26" Association="Self.RefColegio26">
+            <End Role="Colegio" EntitySet="Colegio" />
+            <End Role="Grado" EntitySet="Grado" />
+          </AssociationSet>
+          <AssociationSet Name="RefDepartamento32" Association="Self.RefDepartamento32">
+            <End Role="Departamento" EntitySet="Departamento" />
+            <End Role="Colegio" EntitySet="Colegio" />
+          </AssociationSet>
+          <AssociationSet Name="RefDirector70" Association="Self.RefDirector70">
+            <End Role="Director" EntitySet="Director" />
+            <End Role="Colegio" EntitySet="Colegio" />
+          </AssociationSet>
+          <AssociationSet Name="RefDocente62" Association="Self.RefDocente62">
+            <End Role="Docente" EntitySet="Docente" />
+            <End Role="Grupo" EntitySet="Grupo" />
+          </AssociationSet>
+          <AssociationSet Name="RefDocente64" Association="Self.RefDocente64">
+            <End Role="Docente" EntitySet="Docente" />
+            <End Role="Asistencia" EntitySet="Asistencia" />
+          </AssociationSet>
+          <AssociationSet Name="RefEmunAsis33" Association="Self.RefEmunAsis33">
+            <End Role="EmunAsis" EntitySet="EmunAsis" />
+            <End Role="Asistencia" EntitySet="Asistencia" />
+          </AssociationSet>
+          <AssociationSet Name="RefGrado27" Association="Self.RefGrado27">
+            <End Role="Grado" EntitySet="Grado" />
+            <End Role="Alumno" EntitySet="Alumno" />
+          </AssociationSet>
+          <AssociationSet Name="RefGrupo63" Association="Self.RefGrupo63">
+            <End Role="Grupo" EntitySet="Grupo" />
+            <End Role="Alumno" EntitySet="Alumno" />
+          </AssociationSet>
+          <AssociationSet Name="RefMateria61" Association="Self.RefMateria61">
+            <End Role="Materia" EntitySet="Materia" />
+            <End Role="Grupo" EntitySet="Grupo" />
+          </AssociationSet>
+          <AssociationSet Name="RefTutor69" Association="Self.RefTutor69">
+            <End Role="Tutor" EntitySet="Tutor" />
+            <End Role="Alumno" EntitySet="Alumno" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBAsisAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Alumno">
+          <Key>
+            <PropertyRef Name="IdAlumno" />
+          </Key>
+          <Property Name="IdAlumno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sexo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdGrado" Type="Int32" Nullable="false" />
+          <Property Name="IdGrupo" Type="Int32" Nullable="false" />
+          <Property Name="IdTutor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Asistencias" Relationship="Self.RefAlumno12" FromRole="Alumno" ToRole="Asistencia" />
+          <NavigationProperty Name="Grado" Relationship="Self.RefGrado27" FromRole="Alumno" ToRole="Grado" />
+          <NavigationProperty Name="Grupo" Relationship="Self.RefGrupo63" FromRole="Alumno" ToRole="Grupo" />
+          <NavigationProperty Name="Tutor" Relationship="Self.RefTutor69" FromRole="Alumno" ToRole="Tutor" />
+        </EntityType>
+        <EntityType Name="AnioElectivo">
+          <Key>
+            <PropertyRef Name="IdAnioElectivo" />
+          </Key>
+          <Property Name="IdAnioElectivo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Semestre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Colegios" Relationship="Self.RefAnioElectivo7" FromRole="AnioElectivo" ToRole="Colegio" />
+        </EntityType>
+        <EntityType Name="Asistencia">
+          <Key>
+            <PropertyRef Name="IdAsistencia" />
+          </Key>
+          <Property Name="IdAsistencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="IdAlumno" Type="Int32" Nullable="false" />
+          <Property Name="IdEnumAsis" Type="Int32" Nullable="false" />
+          <Property Name="IdDocente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Alumno" Relationship="Self.RefAlumno12" FromRole="Asistencia" ToRole="Alumno" />
+          <NavigationProperty Name="Docente" Relationship="Self.RefDocente64" FromRole="Asistencia" ToRole="Docente" />
+          <NavigationProperty Name="EmunAsi" Relationship="Self.RefEmunAsis33" FromRole="Asistencia" ToRole="EmunAsis" />
+        </EntityType>
+        <EntityType Name="Colegio">
+          <Key>
+            <PropertyRef Name="idColegio" />
+          </Key>
+          <Property Name="idColegio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomColegio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdAnioElectivo" Type="Int32" Nullable="false" />
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" />
+          <Property Name="IdDirector" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AnioElectivo" Relationship="Self.RefAnioElectivo7" FromRole="Colegio" ToRole="AnioElectivo" />
+          <NavigationProperty Name="Gradoes" Relationship="Self.RefColegio26" FromRole="Colegio" ToRole="Grado" />
+          <NavigationProperty Name="Departamento" Relationship="Self.RefDepartamento32" FromRole="Colegio" ToRole="Departamento" />
+          <NavigationProperty Name="Director" Relationship="Self.RefDirector70" FromRole="Colegio" ToRole="Director" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="IdDepartamento" />
+          </Key>
+          <Property Name="IdDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomDepartamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Colegios" Relationship="Self.RefDepartamento32" FromRole="Departamento" ToRole="Colegio" />
+        </EntityType>
+        <EntityType Name="Director">
+          <Key>
+            <PropertyRef Name="IdDirector" />
+          </Key>
+          <Property Name="IdDirector" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Colegios" Relationship="Self.RefDirector70" FromRole="Director" ToRole="Colegio" />
+        </EntityType>
+        <EntityType Name="Docente">
+          <Key>
+            <PropertyRef Name="IdDocente" />
+          </Key>
+          <Property Name="IdDocente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Asistencias" Relationship="Self.RefDocente64" FromRole="Docente" ToRole="Asistencia" />
+          <NavigationProperty Name="Grupoes" Relationship="Self.RefDocente62" FromRole="Docente" ToRole="Grupo" />
+        </EntityType>
+        <EntityType Name="EmunAsi">
+          <Key>
+            <PropertyRef Name="IdEnumAsis" />
+          </Key>
+          <Property Name="IdEnumAsis" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Asistencias" Relationship="Self.RefEmunAsis33" FromRole="EmunAsis" ToRole="Asistencia" />
+        </EntityType>
+        <EntityType Name="Grado">
+          <Key>
+            <PropertyRef Name="IdGrado" />
+          </Key>
+          <Property Name="IdGrado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idColegio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Alumnoes" Relationship="Self.RefGrado27" FromRole="Grado" ToRole="Alumno" />
+          <NavigationProperty Name="Colegio" Relationship="Self.RefColegio26" FromRole="Grado" ToRole="Colegio" />
+        </EntityType>
+        <EntityType Name="Grupo">
+          <Key>
+            <PropertyRef Name="IdGrupo" />
+          </Key>
+          <Property Name="IdGrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomGrupo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdMateria" Type="Int32" Nullable="false" />
+          <Property Name="IdDocente" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Alumnoes" Relationship="Self.RefGrupo63" FromRole="Grupo" ToRole="Alumno" />
+          <NavigationProperty Name="Docente" Relationship="Self.RefDocente62" FromRole="Grupo" ToRole="Docente" />
+          <NavigationProperty Name="Materia" Relationship="Self.RefMateria61" FromRole="Grupo" ToRole="Materia" />
+        </EntityType>
+        <EntityType Name="Materia">
+          <Key>
+            <PropertyRef Name="IdMateria" />
+          </Key>
+          <Property Name="IdMateria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomMateria" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Grupoes" Relationship="Self.RefMateria61" FromRole="Materia" ToRole="Grupo" />
+        </EntityType>
+        <EntityType Name="Tutor">
+          <Key>
+            <PropertyRef Name="IdTutor" />
+          </Key>
+          <Property Name="IdTutor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Alumnoes" Relationship="Self.RefTutor69" FromRole="Tutor" ToRole="Alumno" />
+        </EntityType>
+        <Association Name="RefAlumno12">
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+          <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Alumno">
+              <PropertyRef Name="IdAlumno" />
+            </Principal>
+            <Dependent Role="Asistencia">
+              <PropertyRef Name="IdAlumno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefGrado27">
+          <End Role="Grado" Type="Self.Grado" Multiplicity="1" />
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grado">
+              <PropertyRef Name="IdGrado" />
+            </Principal>
+            <Dependent Role="Alumno">
+              <PropertyRef Name="IdGrado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefGrupo63">
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="1" />
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupo">
+              <PropertyRef Name="IdGrupo" />
+            </Principal>
+            <Dependent Role="Alumno">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefTutor69">
+          <End Role="Tutor" Type="Self.Tutor" Multiplicity="1" />
+          <End Role="Alumno" Type="Self.Alumno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tutor">
+              <PropertyRef Name="IdTutor" />
+            </Principal>
+            <Dependent Role="Alumno">
+              <PropertyRef Name="IdTutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefAnioElectivo7">
+          <End Role="AnioElectivo" Type="Self.AnioElectivo" Multiplicity="1" />
+          <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AnioElectivo">
+              <PropertyRef Name="IdAnioElectivo" />
+            </Principal>
+            <Dependent Role="Colegio">
+              <PropertyRef Name="IdAnioElectivo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefDocente64">
+          <End Role="Docente" Type="Self.Docente" Multiplicity="1" />
+          <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docente">
+              <PropertyRef Name="IdDocente" />
+            </Principal>
+            <Dependent Role="Asistencia">
+              <PropertyRef Name="IdDocente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefEmunAsis33">
+          <End Role="EmunAsis" Type="Self.EmunAsi" Multiplicity="1" />
+          <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmunAsis">
+              <PropertyRef Name="IdEnumAsis" />
+            </Principal>
+            <Dependent Role="Asistencia">
+              <PropertyRef Name="IdEnumAsis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefColegio26">
+          <End Role="Colegio" Type="Self.Colegio" Multiplicity="1" />
+          <End Role="Grado" Type="Self.Grado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Colegio">
+              <PropertyRef Name="idColegio" />
+            </Principal>
+            <Dependent Role="Grado">
+              <PropertyRef Name="idColegio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefDepartamento32">
+          <End Role="Departamento" Type="Self.Departamento" Multiplicity="1" />
+          <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamento">
+              <PropertyRef Name="IdDepartamento" />
+            </Principal>
+            <Dependent Role="Colegio">
+              <PropertyRef Name="IdDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefDirector70">
+          <End Role="Director" Type="Self.Director" Multiplicity="1" />
+          <End Role="Colegio" Type="Self.Colegio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Director">
+              <PropertyRef Name="IdDirector" />
+            </Principal>
+            <Dependent Role="Colegio">
+              <PropertyRef Name="IdDirector" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefDocente62">
+          <End Role="Docente" Type="Self.Docente" Multiplicity="1" />
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Docente">
+              <PropertyRef Name="IdDocente" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="IdDocente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="RefMateria61">
+          <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
+          <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Materia">
+              <PropertyRef Name="IdMateria" />
+            </Principal>
+            <Dependent Role="Grupo">
+              <PropertyRef Name="IdMateria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBAsisApp" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Alumnoes" EntityType="Self.Alumno" />
+          <EntitySet Name="AnioElectivoes" EntityType="Self.AnioElectivo" />
+          <EntitySet Name="Asistencias" EntityType="Self.Asistencia" />
+          <EntitySet Name="Colegios" EntityType="Self.Colegio" />
+          <EntitySet Name="Departamentoes" EntityType="Self.Departamento" />
+          <EntitySet Name="Directors" EntityType="Self.Director" />
+          <EntitySet Name="Docentes" EntityType="Self.Docente" />
+          <EntitySet Name="EmunAsis" EntityType="Self.EmunAsi" />
+          <EntitySet Name="Gradoes" EntityType="Self.Grado" />
+          <EntitySet Name="Grupoes" EntityType="Self.Grupo" />
+          <EntitySet Name="Materias" EntityType="Self.Materia" />
+          <EntitySet Name="Tutors" EntityType="Self.Tutor" />
+          <AssociationSet Name="RefAlumno12" Association="Self.RefAlumno12">
+            <End Role="Alumno" EntitySet="Alumnoes" />
+            <End Role="Asistencia" EntitySet="Asistencias" />
+          </AssociationSet>
+          <AssociationSet Name="RefGrado27" Association="Self.RefGrado27">
+            <End Role="Grado" EntitySet="Gradoes" />
+            <End Role="Alumno" EntitySet="Alumnoes" />
+          </AssociationSet>
+          <AssociationSet Name="RefGrupo63" Association="Self.RefGrupo63">
+            <End Role="Grupo" EntitySet="Grupoes" />
+            <End Role="Alumno" EntitySet="Alumnoes" />
+          </AssociationSet>
+          <AssociationSet Name="RefTutor69" Association="Self.RefTutor69">
+            <End Role="Tutor" EntitySet="Tutors" />
+            <End Role="Alumno" EntitySet="Alumnoes" />
+          </AssociationSet>
+          <AssociationSet Name="RefAnioElectivo7" Association="Self.RefAnioElectivo7">
+            <End Role="AnioElectivo" EntitySet="AnioElectivoes" />
+            <End Role="Colegio" EntitySet="Colegios" />
+          </AssociationSet>
+          <AssociationSet Name="RefDocente64" Association="Self.RefDocente64">
+            <End Role="Docente" EntitySet="Docentes" />
+            <End Role="Asistencia" EntitySet="Asistencias" />
+          </AssociationSet>
+          <AssociationSet Name="RefEmunAsis33" Association="Self.RefEmunAsis33">
+            <End Role="EmunAsis" EntitySet="EmunAsis" />
+            <End Role="Asistencia" EntitySet="Asistencias" />
+          </AssociationSet>
+          <AssociationSet Name="RefColegio26" Association="Self.RefColegio26">
+            <End Role="Colegio" EntitySet="Colegios" />
+            <End Role="Grado" EntitySet="Gradoes" />
+          </AssociationSet>
+          <AssociationSet Name="RefDepartamento32" Association="Self.RefDepartamento32">
+            <End Role="Departamento" EntitySet="Departamentoes" />
+            <End Role="Colegio" EntitySet="Colegios" />
+          </AssociationSet>
+          <AssociationSet Name="RefDirector70" Association="Self.RefDirector70">
+            <End Role="Director" EntitySet="Directors" />
+            <End Role="Colegio" EntitySet="Colegios" />
+          </AssociationSet>
+          <AssociationSet Name="RefDocente62" Association="Self.RefDocente62">
+            <End Role="Docente" EntitySet="Docentes" />
+            <End Role="Grupo" EntitySet="Grupoes" />
+          </AssociationSet>
+          <AssociationSet Name="RefMateria61" Association="Self.RefMateria61">
+            <End Role="Materia" EntitySet="Materias" />
+            <End Role="Grupo" EntitySet="Grupoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBAsisAppModelStoreContainer" CdmEntityContainer="DBAsisApp">
+          <EntitySetMapping Name="Alumnoes">
+            <EntityTypeMapping TypeName="DBAsisAppModel.Alumno">
+              <MappingFragment StoreEntitySet="Alumno">
+                <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdGrado" ColumnName="IdGrado" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="IdTutor" ColumnName="IdTutor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AnioElectivoes">
+            <EntityTypeMapping TypeName="DBAsisAppModel.AnioElectivo">
+              <MappingFragment StoreEntitySet="AnioElectivo">
+                <ScalarProperty Name="IdAnioElectivo" ColumnName="IdAnioElectivo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Semestre" ColumnName="Semestre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Asistencias">
+            <EntityTypeMapping TypeName="DBAsisAppModel.Asistencia">
+              <MappingFragment StoreEntitySet="Asistencia">
+                <ScalarProperty Name="IdAsistencia" ColumnName="IdAsistencia" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdAlumno" ColumnName="IdAlumno" />
+                <ScalarProperty Name="IdEnumAsis" ColumnName="IdEnumAsis" />
+                <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Colegios">
+            <EntityTypeMapping TypeName="DBAsisAppModel.Colegio">
+              <MappingFragment StoreEntitySet="Colegio">
+                <ScalarProperty Name="idColegio" ColumnName="idColegio" />
+                <ScalarProperty Name="NomColegio" ColumnName="NomColegio" />
+                <ScalarProperty Name="IdAnioElectivo" ColumnName="IdAnioElectivo" />
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="IdDirector" ColumnName="IdDirector" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamentoes">
+            <EntityTypeMapping TypeName="DBAsisAppModel.Departamento">
+              <MappingFragment StoreEntitySet="Departamento">
+                <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+                <ScalarProperty Name="NomDepartamento" ColumnName="NomDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Directors">
+            <EntityTypeMapping TypeName="DBAsisAppModel.Director">
+              <MappingFragment StoreEntitySet="Director">
+                <ScalarProperty Name="IdDirector" ColumnName="IdDirector" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Docentes">
+            <EntityTypeMapping TypeName="DBAsisAppModel.Docente">
+              <MappingFragment StoreEntitySet="Docente">
+                <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmunAsis">
+            <EntityTypeMapping TypeName="DBAsisAppModel.EmunAsi">
+              <MappingFragment StoreEntitySet="EmunAsis">
+                <ScalarProperty Name="IdEnumAsis" ColumnName="IdEnumAsis" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gradoes">
+            <EntityTypeMapping TypeName="DBAsisAppModel.Grado">
+              <MappingFragment StoreEntitySet="Grado">
+                <ScalarProperty Name="IdGrado" ColumnName="IdGrado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="idColegio" ColumnName="idColegio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupoes">
+            <EntityTypeMapping TypeName="DBAsisAppModel.Grupo">
+              <MappingFragment StoreEntitySet="Grupo">
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="NomGrupo" ColumnName="NomGrupo" />
+                <ScalarProperty Name="IdMateria" ColumnName="IdMateria" />
+                <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materias">
+            <EntityTypeMapping TypeName="DBAsisAppModel.Materia">
+              <MappingFragment StoreEntitySet="Materia">
+                <ScalarProperty Name="IdMateria" ColumnName="IdMateria" />
+                <ScalarProperty Name="NomMateria" ColumnName="NomMateria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tutors">
+            <EntityTypeMapping TypeName="DBAsisAppModel.Tutor">
+              <MappingFragment StoreEntitySet="Tutor">
+                <ScalarProperty Name="IdTutor" ColumnName="IdTutor" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

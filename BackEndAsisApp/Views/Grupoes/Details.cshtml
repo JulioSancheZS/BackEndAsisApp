@@ -1,0 +1,42 @@
+﻿@model BackEndAsisApp.Models.Grupo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Grupo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomGrupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomGrupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Docente.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Docente.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Materia.NomMateria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Materia.NomMateria)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdGrupo }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5633486dfd0c45a08da7b8f50a0e9184" Name="Diagram1">
+        <EntityTypeShape EntityType="DBAsisAppModel.Alumno" Width="1.5" PointX="8" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.AnioElectivo" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.Asistencia" Width="1.5" PointX="9.875" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.Colegio" Width="1.5" PointX="3.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.Departamento" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.Director" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.Docente" Width="1.5" PointX="2.875" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.EmunAsi" Width="1.5" PointX="9.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.Grado" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.Grupo" Width="1.5" PointX="5.5" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.Materia" Width="1.5" PointX="5.375" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBAsisAppModel.Tutor" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <AssociationConnector Association="DBAsisAppModel.RefAlumno12" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefGrado27" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefGrupo63" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefTutor69" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefAnioElectivo7" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefDocente64" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefEmunAsis33" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefColegio26" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefDepartamento32" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefDirector70" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefDocente62" ManuallyRouted="false" />
+        <AssociationConnector Association="DBAsisAppModel.RefMateria61" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

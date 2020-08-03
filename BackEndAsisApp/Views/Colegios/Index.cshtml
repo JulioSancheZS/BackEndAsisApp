@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BackEndAsisApp.Models.Colegio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomColegio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AnioElectivo.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departamento.NomDepartamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Director.Nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomColegio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AnioElectivo.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departamento.NomDepartamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Director.Nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idColegio }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idColegio }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idColegio })
+        </td>
+    </tr>
+}
+
+</table>
